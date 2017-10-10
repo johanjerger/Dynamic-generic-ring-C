@@ -18,6 +18,7 @@ typedef struct _ring
     // functions
 
     int (*size)(struct _ring *);
+    struct _ring * (*add)(struct _ring *, void *);
 } ring_t;
 
 ring_t * new_ring();
