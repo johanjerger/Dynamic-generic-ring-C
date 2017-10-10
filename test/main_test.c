@@ -4,6 +4,8 @@
 #include "../src/utilities/includes/colors.h"
 #include "../src/utilities/includes/utilities.h"
 #include "includes/dgr_new_test.h"
+#include "includes/dgr_add_test.h"
+#include "includes/dgr_size_test.h"
 
 /*
  * This is the test main function,
@@ -18,6 +20,10 @@ int main()
         make_test_title("dgr");
 
         dgr_new_test();
+
+        dgr_add_test();
+
+        dgr_size_test();
 
         end_test_title("dgr");
 
