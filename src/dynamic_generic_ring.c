@@ -10,13 +10,15 @@ ring_t * new_ring()
 {
         ring_t * new_ring;
 
-        new_ring = malloc(sizeof(ring_t));
+        new_ring = (ring_t *) malloc(sizeof(ring_t));
+        new_ring->elem = NULL;
         new_ring->next = new_ring;
         new_ring->previous = new_ring;
 
         // Ring functions assignation
 
         new_ring->size = &dgr_size;
+        new_ring->add = &dgr_add;
 
         return new_ring;
 }
