@@ -11,7 +11,5 @@ void dgr_new_test()
         assert(malloc_usable_size(ring) > 0,
                "new");
 
-        printf("%d\n", ring->size(ring));
-
         free(ring);
 }
