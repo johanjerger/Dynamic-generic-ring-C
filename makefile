@@ -70,10 +70,11 @@ test.o:
 
 		###RING TEST###
 
-		# NEW TEST
+		# METHODS TESTS
 		gcc -c $(TEST_FOLDER)/dgr_new_test.c -o $(TEMPORAL_FOLDER)/dgr_new_test.o $(CFLAG) $(DEBUG)
+		gcc -c $(TEST_FOLDER)/dgr_add_test.c -o $(TEMPORAL_FOLDER)/dgr_add_test.o $(CFLAG) $(DEBUG)
+		gcc -c $(TEST_FOLDER)/dgr_size_test.c -o $(TEMPORAL_FOLDER)/dgr_size_test.o $(CFLAG) $(DEBUG)
 
-	  # ADD TEST
 
 		#UTILITIES
 		gcc -c $(SOURCE_FOLDER)/utilities/utilities.c -o $(TEMPORAL_FOLDER)/utilities.o $(CFLAG) $(DEBUG)
