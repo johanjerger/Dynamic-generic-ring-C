@@ -19,6 +19,7 @@ main.o:
 
 		# DGR STRUCTURE
 		gcc -c $(SOURCE_FOLDER)/dynamic_generic_ring.c -o $(TEMPORAL_FOLDER)/dynamic_generic_ring.o $(CFLAG) $(DEBUG)
+		gcc -c $(SOURCE_FOLDER)/dgr_operations.c -o $(TEMPORAL_FOLDER)/dgr_operations.o $(CFLAG) $(DEBUG)
 
 		#UTILITIES
 		gcc -c $(SOURCE_FOLDER)/utilities/utilities.c -o $(TEMPORAL_FOLDER)/utilities.o $(CFLAG) $(DEBUG)
@@ -60,6 +61,10 @@ test: clean-test folders-test test.o $(TEMPORAL_FOLDER) $(BUILD_TEST_FOLDER)
 
 test.o:
 
+		# DGR STRUCTURE
+		gcc -c $(SOURCE_FOLDER)/dynamic_generic_ring.c -o $(TEMPORAL_FOLDER)/dynamic_generic_ring.o $(CFLAG) $(DEBUG)
+		gcc -c $(SOURCE_FOLDER)/dgr_operations.c -o $(TEMPORAL_FOLDER)/dgr_operations.o $(CFLAG) $(DEBUG)
+
 		#TEST CLASES
 	  gcc -c $(TEST_FOLDER)/main_test.c -o $(TEMPORAL_FOLDER)/main_test.o $(CFLAG) $(DEBUG)
 		gcc -c $(TEST_FOLDER)/test.c -o $(TEMPORAL_FOLDER)/test.o $(CFLAG) $(DEBUG)
@@ -67,6 +72,7 @@ test.o:
 		###RING TEST###
 
 		# NEW TEST
+		gcc -c $(TEST_FOLDER)/dgr_new_test.c -o $(TEMPORAL_FOLDER)/dgr_new_test.o $(CFLAG) $(DEBUG)
 
 	  # ADD TEST
 
