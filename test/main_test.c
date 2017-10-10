@@ -3,6 +3,7 @@
 #include "includes/test.h"
 #include "../src/utilities/includes/colors.h"
 #include "../src/utilities/includes/utilities.h"
+#include "includes/dgr_new_test.h"
 
 /*
  * This is the test main function,
@@ -13,6 +14,12 @@
 int main()
 {
         make_header();
+
+        make_test_title("dgr");
+
+        dgr_new_test();
+
+        end_test_title("dgr");
 
         make_footer();
 
