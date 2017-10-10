@@ -23,7 +23,6 @@ main.o:
 
 		#UTILITIES
 		gcc -c $(SOURCE_FOLDER)/utilities/utilities.c -o $(TEMPORAL_FOLDER)/utilities.o $(CFLAG) $(DEBUG)
-		gcc -c $(SOURCE_FOLDER)/utilities/inputs.c -o $(TEMPORAL_FOLDER)/inputs.o $(CFLAG) $(DEBUG)
 
 clean:
 		-rm -r $(TEMPORAL_FOLDER) $(BUILD_FOLDER)
@@ -78,7 +77,6 @@ test.o:
 
 		#UTILITIES
 		gcc -c $(SOURCE_FOLDER)/utilities/utilities.c -o $(TEMPORAL_FOLDER)/utilities.o $(CFLAG) $(DEBUG)
-		gcc -c $(SOURCE_FOLDER)/utilities/inputs.c -o $(TEMPORAL_FOLDER)/inputs.o $(CFLAG) $(DEBUG)
 
 clean-test:
 	  -rm -r $(TEMPORAL_FOLDER) $(BUILD_TEST_FOLDER)
