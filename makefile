@@ -10,6 +10,8 @@ CFLAG=-O3 -Wall -std=gnu11
 
 
 .PHONY: all clean clean-test folders install uninstall reinstall lines test test-run
+.IGNORE: clean clean-test
+
 all: clean folders main.o $(TEMPORAL_FOLDER) $(BUILD_FOLDER)
 	    gcc $(TEMPORAL_FOLDER)/** -o $(BUILD_FOLDER)/dgr $(CFLAG) $(DEBUG)
 
@@ -25,7 +27,7 @@ main.o:
 		gcc -c $(SOURCE_FOLDER)/utilities/utilities.c -o $(TEMPORAL_FOLDER)/utilities.o $(CFLAG) $(DEBUG)
 
 clean:
-		-rm -r $(TEMPORAL_FOLDER) $(BUILD_FOLDER)
+		-rm -rf $(TEMPORAL_FOLDER) $(BUILD_FOLDER)
 
 folders:
 		-mkdir $(TEMPORAL_FOLDER) $(BUILD_FOLDER)
@@ -80,7 +82,7 @@ test.o:
 		gcc -c $(SOURCE_FOLDER)/utilities/utilities.c -o $(TEMPORAL_FOLDER)/utilities.o $(CFLAG) $(DEBUG)
 
 clean-test:
-	  -rm -r $(TEMPORAL_FOLDER) $(BUILD_TEST_FOLDER)
+	  -rm -rf $(TEMPORAL_FOLDER) $(BUILD_TEST_FOLDER)
 
 folders-test:
 		-mkdir $(TEMPORAL_FOLDER) $(BUILD_TEST_FOLDER)
