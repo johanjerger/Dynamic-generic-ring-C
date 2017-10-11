@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdbool.h>
 #include "includes/dynamic_generic_ring.h"
 #include "includes/dgr_operations.h"
 
