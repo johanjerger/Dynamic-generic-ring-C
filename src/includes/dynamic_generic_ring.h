@@ -19,6 +19,10 @@ typedef struct _ring
 
     int (*size)(struct _ring *);
     struct _ring * (*add)(struct _ring *, void *);
+    bool (*exist)(struct _ring *, void *);
+
+    // callbacks
+    bool (*exist_callback)(void *, void *);
 } ring_t;
 
 ring_t * new_ring();
