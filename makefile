@@ -7,7 +7,9 @@ INSTALL_FOLDER=/usr/bin
 CFLAG=-Ofast -Wall -std=gnu11 -Wpedantic -Werror -fpic
 #DEBUG=-g
 
-dgr_c_files = dynamic_generic_ring dgr_operations dgr_add dgr_callbacks
+dgr_c_files = dynamic_generic_ring dgr_operations dgr_add dgr_callbacks   \
+							dgr_delete
+
 dgr_test_c_files = main_test test dgr_new_test dgr_add_test dgr_size_test \
 									 dgr_exist_test
 
