@@ -48,7 +48,7 @@ ring_t * dgr_delete_next(ring_t * act_ring)
         return act_ring;
 }
 
-// This function delete a particualr elem in the ring
+// This function deletes a particular elem in the ring
 ring_t * dgr_delete_elem(ring_t * act_ring, void * elem)
 {
         ring_t * head = act_ring;
@@ -65,6 +65,7 @@ ring_t * dgr_delete_elem(ring_t * act_ring, void * elem)
 }
 
 
+// This function deletes all the elems that are like your elem
 ring_t * dgr_delete_all_elem(ring_t * act_ring, void * elem)
 {
         ring_t * head = act_ring;
@@ -80,7 +81,7 @@ ring_t * dgr_delete_all_elem(ring_t * act_ring, void * elem)
         return act_ring;
 }
 
-
+// This function deletes the next elem after the elem like you pass
 ring_t * dgr_delete_next_elem(ring_t * act_ring, void * elem)
 {
         ring_t * head = act_ring;
@@ -95,7 +96,7 @@ ring_t * dgr_delete_next_elem(ring_t * act_ring, void * elem)
         return act_ring;
 }
 
-
+// This function deletes the before elem after the elem like you pass
 ring_t * dgr_delete_before_elem(ring_t * act_ring, void * elem)
 {
         ring_t * head = act_ring;
