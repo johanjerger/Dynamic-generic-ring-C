@@ -4,6 +4,7 @@
 #include "includes/dgr_new_test.h"
 #include "includes/dgr_add_test.h"
 #include "includes/dgr_size_test.h"
+#include "includes/dgr_exist_test.h"
 
 /*
  * This is the test main function,
@@ -22,6 +23,8 @@ int main()
         dgr_add_test();
 
         dgr_size_test();
+
+        dgr_exist_test();
 
         end_test_title("dgr");
 
