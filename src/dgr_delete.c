@@ -30,12 +30,83 @@ ring_t * dgr_delete_before(ring_t * act_ring)
 // The delete function delete an element on after the actual ring position.
 ring_t * dgr_delete_next(ring_t * act_ring)
 {
+        if (act_ring->size == 0) {
+                return act_ring;
+        }
+        if (act_ring->size == 1) {
+                act_ring->size--;
+                return act_ring->elem = NULL;
+        }
+
+        act_ring->size--;
+
+        ring_t * new_next = act_ring->next->next;
+        new_next->previous = act_ring;
+        free(act_ring->next);
+        act_ring->next = new_next;
+
         return act_ring;
 }
 
 
 ring_t * dgr_delete_elem(ring_t * act_ring, void * elem)
 {
+        ring_t * head = act_ring;
+
+        while(head->next != act_ring) {
+                if(head->equals_callback(head->elem, elem)) {
+                        head->delete(head->next);
+                        return act_ring;
+                }
+                head = head->next;
+        }
+
+        return act_ring;
+}
+
+
+ring_t * dgr_delete_all_elem(ring_t * act_ring, void * elem)
+{
+        ring_t * head = act_ring;
+
+        while(head->next != act_ring) {
+                if(head->equals_callback(head->elem, elem)) {
+                        head->delete(head->next);
+                        return act_ring;
+                }
+                head = head->next;
+        }
+
+        return act_ring;
+}
+
+
+ring_t * dgr_delete_next_elem(ring_t * act_ring, void * elem)
+{
+        ring_t * head = act_ring;
+
+        while(head->next != act_ring) {
+                if(head->equals_callback(head->elem, elem)) {
+                        head->delete_next(head);
+                }
+                head = head->next;
+        }
+
+        return act_ring;
+}
+
+
+ring_t * dgr_delete_before_elem(ring_t * act_ring, void * elem)
+{
+        ring_t * head = act_ring;
+
+        while(head->next != act_ring) {
+                if(head->equals_callback(head->elem, elem)) {
+                        head->delete_before(head);
+                }
+                head = head->next;
+        }
+
         return act_ring;
 }
 
