@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "includes/test.h"
-#include "../src/utilities/includes/colors.h"
-#include "../src/utilities/includes/utilities.h"
 #include "includes/dgr_new_test.h"
 #include "includes/dgr_add_test.h"
 #include "includes/dgr_size_test.h"
