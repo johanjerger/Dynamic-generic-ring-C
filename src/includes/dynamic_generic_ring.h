@@ -1,6 +1,6 @@
 #ifndef DGR_STR_H
 #define DGR_STR_H
-
+#include <stdbool.h>
 /*
  *  Ring structure typedef, here I define all the ring
  *  attributes (as variables) and functions, in an
