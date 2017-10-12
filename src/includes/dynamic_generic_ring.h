@@ -25,11 +25,20 @@ typedef struct _ring
     struct _ring * (*add_before)(struct _ring *, void *);
     struct _ring * (*add_next)(struct _ring *, void *);
 
+    // delete functions
+    struct _ring * (*delete)(struct _ring *);
+    struct _ring * (*delete_before)(struct _ring *);
+    struct _ring * (*delete_next)(struct _ring *);
+    struct _ring * (*delete_item)(struct _ring *, void *);
+
     // set callbacks
     void (*set_equals_callback)(struct _ring *, bool (*)(void *, void *));
 
     // callbacks
     bool (*equals_callback)(void *, void *);
+
+    // destruct
+    void (*destruct)(struct _ring *);
 } ring_t;
 
 ring_t * new_ring();
