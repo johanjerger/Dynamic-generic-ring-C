@@ -22,7 +22,7 @@ void dgr_add_test()
         aux_str->aux_int = 2;
         aux_str->aux_char = 'c';
 
-        ring->add(ring, int_test);
+        ring->add_elem(ring, int_test);
         ring->add(ring, str_test);
         ring->add(ring, aux_str);
 
