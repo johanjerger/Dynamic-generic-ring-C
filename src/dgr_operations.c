@@ -12,13 +12,13 @@ bool dgr_exist(ring_t * act_ring, void * elem)
         ring_t * head = act_ring;
 
         while(head->next != act_ring) {
-                if(act_ring->equals_callback(head->elem, elem)) {
+                if(head->equals_callback(head->elem, elem)) {
                         return true;
                 }
                 head = head->next;
         }
 
-        return act_ring->equals_callback(head->elem, elem);
+        return head->equals_callback(head->elem, elem);
 }
 
 // Free all the allocated memory
