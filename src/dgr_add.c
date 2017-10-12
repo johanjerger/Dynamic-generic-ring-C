@@ -6,14 +6,15 @@
  *  Here I define all the ring add functions.
  */
 
-// The add function add an element on before the actual ring position.
-ring_t * dgr_add_before(ring_t * act_ring, void * elem)
+void dgr_add_elem(ring_t * act_ring, void * elem)
 {
         act_ring->size++;
-        if (act_ring->elem == NULL) {
-                return (act_ring->elem = elem);
-        }
+        act_ring->elem = elem;
+}
 
+// The add function add an element on before the actual ring position.
+void dgr_add_before(ring_t * act_ring, void * elem)
+{
         ring_t * ring = new_ring();
 
         ring->elem = elem;
@@ -21,18 +22,12 @@ ring_t * dgr_add_before(ring_t * act_ring, void * elem)
         ring->previous = act_ring->previous;
         act_ring->previous->next = ring;
         act_ring->previous = ring;
-
-        return act_ring;
+        act_ring->size++;
 }
 
 // The add function add an element on after the actual ring position.
-ring_t * dgr_add_next(ring_t * act_ring, void * elem)
+void dgr_add_next(ring_t * act_ring, void * elem)
 {
-        act_ring->size++;
-        if (act_ring->elem == NULL) {
-                return (act_ring->elem = elem);
-        }
-
         ring_t * ring = new_ring();
 
         ring->elem = elem;
@@ -40,12 +35,11 @@ ring_t * dgr_add_next(ring_t * act_ring, void * elem)
         ring->next = act_ring->next;
         act_ring->next->previous = ring;
         act_ring->next = ring;
-
-        return act_ring;
+        act_ring->size++;
 }
 
 // This method is a wrapper of dgr_add_before
-ring_t * dgr_add(ring_t * act_ring, void * elem)
+void dgr_add(ring_t * act_ring, void * elem)
 {
-        return act_ring->add_before(act_ring, elem);
+        act_ring->add_before(act_ring, elem);
 }
