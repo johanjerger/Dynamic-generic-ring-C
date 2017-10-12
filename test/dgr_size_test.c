@@ -15,7 +15,7 @@ void dgr_size_test()
         char * test_data5 = "test5";
         char * test_data6 = "test6";
 
-        ring->add(ring, test_data1);
+        ring->add_elem(ring, test_data1);
         ring->add(ring, test_data2);
         ring->add(ring, test_data3);
         ring->add(ring, test_data4);

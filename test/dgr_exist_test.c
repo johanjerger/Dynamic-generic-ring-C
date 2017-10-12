@@ -30,7 +30,7 @@ void dgr_exist_test()
         aux_str3->aux_char = 'Z';
 
         ring_t * ring = new_ring();
-        ring->add(ring, aux_str1);
+        ring->add_elem(ring, aux_str1);
         ring->add(ring, aux_str2);
 
         ring->set_equals_callback(ring, &exist_callback_test);
