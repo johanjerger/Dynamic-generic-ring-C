@@ -5,7 +5,6 @@
  *  Here I define all the ring generic functions headers.
  */
 
-    int dgr_size(ring_t *);
     bool dgr_exist(ring_t *, void *);
     void dgr_destruct(ring_t *);
 
