@@ -39,4 +39,9 @@ void dgr_exist_test()
                ring->exist(ring, aux_str2) &&
                (!ring->exist(ring, aux_str3))
                ,"exist");
+
+        free(aux_str1);
+        free(aux_str2);
+        free(aux_str3);
+        ring->destruct(ring);
 }
