@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include "includes/dynamic_generic_ring.h"
 #include "includes/dgr_operations.h"
+#include "includes/dgr_add.h"
 
 /*
  * Here I define the interface of the ring_t structure.
