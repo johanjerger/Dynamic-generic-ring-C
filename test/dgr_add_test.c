@@ -41,5 +41,7 @@ void dgr_add_test()
                (((int *) ring->next->next->next->elem) == int_test),
                "add_next");
 
-        free(ring);
+        free(int_test);
+        free(aux_str);
+        ring->destruct(ring);
 }
