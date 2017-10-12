@@ -3,7 +3,7 @@
 #include "includes/dynamic_generic_ring.h"
 
 /*
- *  Here I define all the ring functions.
+ *  Here I define all the ring generic functions.
  */
 
 // The size function return the number of ring structs linked.
@@ -23,25 +23,6 @@ int dgr_size(ring_t * act_ring)
         }
 
         return size;
-}
-
-
-// The add function add an element on before the actual ring position.
-ring_t * dgr_add(ring_t * act_ring, void * elem)
-{
-        if (act_ring->elem == NULL) {
-                return (act_ring->elem = elem);
-        }
-
-        ring_t * ring = new_ring();
-
-        ring->elem = elem;
-        ring->next = act_ring;
-        ring->previous = act_ring->previous;
-        act_ring->previous->next = ring;
-        act_ring->previous = ring;
-
-        return act_ring;
 }
 
 // Checks if an elem exist in the ring
