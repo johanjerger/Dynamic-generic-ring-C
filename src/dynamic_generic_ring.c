@@ -21,6 +21,7 @@ ring_t * new_ring()
 
         // Ring functions assignation
 
+        new_ring->get_elem = &dgr_get_elem;
         new_ring->add = &dgr_add;
         new_ring->add_before = &dgr_add_before;
         new_ring->add_next = &dgr_add_next;
