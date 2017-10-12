@@ -30,7 +30,16 @@ void dgr_add_test()
                (strcmp(((char *) ring->next->elem), str_test) == 0) &&
                ((((struct aux_test_str *) ring->previous->elem)->aux_char) == aux_str->aux_char) &&
                ((((struct aux_test_str *) ring->previous->elem)->aux_int) == aux_str->aux_int),
-               "add");
+               "add_before");
+
+        ring->add_next(ring, int_test);
+        ring->add_next(ring, int_test);
+        ring->add_next(ring, int_test);
+
+        assert((((int *) ring->next->elem) == int_test) &&
+               (((int *) ring->next->next->elem) == int_test) &&
+               (((int *) ring->next->next->next->elem) == int_test),
+               "add_next");
 
         free(ring);
 }
