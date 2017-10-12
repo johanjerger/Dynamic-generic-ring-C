@@ -30,6 +30,14 @@
   * Changed add function.
   * Created add_before & add_next.
   
+#### 13/10/2017
+
+  * Changed ring structure
+  * Created delete functions.
+  * Created destruct function.
+  * Tested destruct function (All the test use it).
+  
 [1]: https://github.com/johanjerger/dynamic-generic-ring-C/blob/master/changelog.md#initial-commit
 [2]: https://github.com/johanjerger/dynamic-generic-ring-C/blob/master/changelog.md#10102017
 [3]: https://github.com/johanjerger/dynamic-generic-ring-C/blob/master/changelog.md#12102017
+[4]: https://github.com/johanjerger/dynamic-generic-ring-C/blob/master/changelog.md#13102017
