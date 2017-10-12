@@ -24,4 +24,9 @@ bool dgr_exist(ring_t * act_ring, void * elem)
 // Free all the allocated memory
 void dgr_destruct(ring_t * act_ring)
 {
+        while(act_ring->size > 0) {
+                act_ring->delete(act_ring);
+        }
+
+        free(act_ring);
 }
