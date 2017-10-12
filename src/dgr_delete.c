@@ -48,7 +48,7 @@ ring_t * dgr_delete_next(ring_t * act_ring)
         return act_ring;
 }
 
-
+// This function delete a particualr elem in the ring
 ring_t * dgr_delete_elem(ring_t * act_ring, void * elem)
 {
         ring_t * head = act_ring;
