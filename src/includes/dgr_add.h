@@ -6,5 +6,7 @@
  */
 
     ring_t * dgr_add(ring_t *, void *);
+    ring_t * dgr_add_before(ring_t *, void *);
+    ring_t * dgr_add_next(ring_t *, void *);
 
 #endif
