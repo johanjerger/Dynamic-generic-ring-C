@@ -12,17 +12,24 @@ typedef struct _ring
     // variables
 
     void * elem;
+    int size;
     struct _ring * next;
     struct _ring * previous;
 
-    // functions
+    // generic functions
 
-    int (*size)(struct _ring *);
-    struct _ring * (*add)(struct _ring *, void *);
     bool (*exist)(struct _ring *, void *);
 
+    // add functions
+    struct _ring * (*add)(struct _ring *, void *);
+    struct _ring * (*add_before)(struct _ring *, void *);
+    struct _ring * (*add_next)(struct _ring *, void *);
+
+    // set callbacks
+    void (*set_equals_callback)(struct _ring *, bool (*)(void *, void *));
+
     // callbacks
-    bool (*exist_callback)(void *, void *);
+    bool (*equals_callback)(void *, void *);
 } ring_t;
 
 ring_t * new_ring();
