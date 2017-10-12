@@ -26,5 +26,6 @@ void dgr_size_test()
                (empty_ring->size == 0),
                "size");
 
-        free(ring);
+        ring->destruct(ring);
+        empty_ring->destruct(empty_ring);
 }
