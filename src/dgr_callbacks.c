@@ -10,4 +10,6 @@ void dgr_set_equals_callback(ring_t * act_ring, bool (*equals_callback)(void *, 
                 head->equals_callback = equals_callback;
                 head = head->next;
         }
+
+        head->equals_callback = equals_callback;
 }
