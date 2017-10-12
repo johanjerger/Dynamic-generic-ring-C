@@ -22,12 +22,18 @@ ring_t * new_ring()
 
         // Ring functions assignation
 
+        new_ring->add_elem = &dgr_add_elem;
         new_ring->add = &dgr_add;
         new_ring->add_before = &dgr_add_before;
         new_ring->add_next = &dgr_add_next;
         new_ring->exist = &dgr_exist;
         new_ring->delete_before = &dgr_delete_before;
         new_ring->delete = &dgr_delete;
+        new_ring->delete_next = &dgr_delete_next;
+        new_ring->delete_elem = &dgr_delete_elem;
+        new_ring->delete_all_elem = &dgr_delete_all_elem;
+        new_ring->delete_next_elem_to = &dgr_delete_next_elem_to;
+        new_ring->delete_before_elem_to = &dgr_delete_before_elem_to;
 
         // Callbacks
 
