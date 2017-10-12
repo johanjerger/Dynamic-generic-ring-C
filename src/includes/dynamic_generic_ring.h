@@ -17,19 +17,22 @@ typedef struct _ring
     struct _ring * previous;
 
     // generic functions
-
     bool (*exist)(struct _ring *, void *);
 
     // add functions
-    struct _ring * (*add)(struct _ring *, void *);
-    struct _ring * (*add_before)(struct _ring *, void *);
-    struct _ring * (*add_next)(struct _ring *, void *);
+    void (*add_elem)(struct _ring *, void *);
+    void (*add)(struct _ring *, void *);
+    void (*add_before)(struct _ring *, void *);
+    void (*add_next)(struct _ring *, void *);
 
     // delete functions
-    struct _ring * (*delete)(struct _ring *);
-    struct _ring * (*delete_before)(struct _ring *);
-    struct _ring * (*delete_next)(struct _ring *);
-    struct _ring * (*delete_item)(struct _ring *, void *);
+    void (*delete)(struct _ring *);
+    void (*delete_before)(struct _ring *);
+    void (*delete_next)(struct _ring *);
+    void (*delete_elem)(struct _ring *, void *);
+    void (*delete_all_elem)(struct _ring *, void *);
+    void (*delete_next_elem_to)(struct _ring *, void *);
+    void (*delete_before_elem_to)(struct _ring *, void *);
 
     // set callbacks
     void (*set_equals_callback)(struct _ring *, bool (*)(void *, void *));
