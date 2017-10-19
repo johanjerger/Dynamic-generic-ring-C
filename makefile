@@ -4,7 +4,7 @@ BUILD_FOLDER=build
 TEMPORAL_FOLDER=tmp
 INSTALL_FOLDER=/usr/bin
 
-CFLAG=-Ofast -Wall -std=gnu11 -Wpedantic -Werror -fpic
+CFLAG= -Ofast -Wall -std=gnu11 -pedantic -Werror
 #DEBUG=-g
 
 dgr_c_files = dynamic_generic_ring dgr_operations dgr_add dgr_callbacks   \
@@ -26,6 +26,12 @@ main.o: dgr.o
 		#MAIN
 		gcc -c $(SOURCE_FOLDER)/main.c -o $(TEMPORAL_FOLDER)/main.o $(CFLAG) $(DEBUG)
 
+dgr.o:
+		# DGR STRUCTURE
+		for file in $(dgr_c_files); do \
+		gcc -c $(SOURCE_FOLDER)/$$file.c -o $(TEMPORAL_FOLDER)/$$file.o $(CFLAG) $(DEBUG); \
+done
+
 test.o: dgr.o
 		#TEST CLASES
 		for file in $(dgr_test_c_files); do \
@@ -34,12 +40,6 @@ done
 
 		#UTILITIES
 		gcc -c $(TEST_FOLDER)/utilities/utilities.c -o $(TEMPORAL_FOLDER)/utilities.o $(CFLAG) $(DEBUG); \
-
-dgr.o:
-		# DGR STRUCTURE
-		for file in $(dgr_c_files); do \
-		gcc -c $(SOURCE_FOLDER)/$$file.c -o $(TEMPORAL_FOLDER)/$$file.o $(CFLAG) $(DEBUG); \
-done
 
 install: $(BUILD_FOLDER)/dgr; cp -p $(BUILD_FOLDER)/dgr $(INSTALL_FOLDER)
 
