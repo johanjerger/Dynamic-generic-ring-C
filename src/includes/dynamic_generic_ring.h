@@ -12,12 +12,13 @@ typedef struct _ring
     // variables
 
     void * elem;
-    int size;
     struct _ring * next;
     struct _ring * previous;
 
     // generic functions
+    int (*size)(struct _ring *);
     bool (*exist)(struct _ring *, void *);
+    void (*print)(struct _ring *);
 
     // add functions
     void (*add_elem)(struct _ring *, void *);
@@ -36,9 +37,11 @@ typedef struct _ring
 
     // set callbacks
     void (*set_equals_callback)(struct _ring *, bool (*)(void *, void *));
+    void (*set_print_callback)(struct _ring *, void (*)(void *));
 
     // callbacks
     bool (*equals_callback)(void *, void *);
+    void (*print_callback)(void *);
 
     // destruct
     void (*destruct)(struct _ring *);
