@@ -8,11 +8,10 @@
 
 static bool dgr_empty_delete(ring_t * act_ring)
 {
-        if (act_ring->size == 0) {
+        if (act_ring->size(act_ring) == 0) {
                 return true;
         }
-        if (act_ring->size == 1) {
-                act_ring->size--;
+        if (act_ring->size(act_ring) == 1) {
                 act_ring->elem = NULL;
                 return true;
         }
@@ -24,8 +23,6 @@ void dgr_delete_before(ring_t * act_ring)
 {
         if(dgr_empty_delete(act_ring)) return;
 
-        act_ring->size--;
-
         ring_t * new_previous = act_ring->previous->previous;
         new_previous->next = act_ring;
         free(act_ring->previous);
@@ -36,8 +33,6 @@ void dgr_delete_before(ring_t * act_ring)
 void dgr_delete_next(ring_t * act_ring)
 {
         if(dgr_empty_delete(act_ring)) return;
-
-        act_ring->size--;
 
         ring_t * new_next = act_ring->next->next;
         new_next->previous = act_ring;
