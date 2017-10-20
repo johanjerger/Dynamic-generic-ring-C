@@ -21,10 +21,38 @@ bool dgr_exist(ring_t * act_ring, void * elem)
         return head->equals_callback(head->elem, elem);
 }
 
+// Return the count of elements of the ring
+bool dgr_size(ring_t * act_ring)
+{
+        int size = 0;
+        ring_t * head = act_ring;
+
+        if (head->elem == NULL) return size;
+
+        while(head->next != act_ring) {
+                size++;
+        }
+
+        return ++size;
+}
+
+// Print each elem calling the print_callback
+void dgr_print(ring_t * act_ring)
+{
+        ring_t * head = act_ring;
+
+        while(head->next != act_ring) {
+                head->print_callback(head->elem);
+                head = head->next;
+        }
+
+        head->print_callback(head->elem);
+}
+
 // Free all the allocated memory
 void dgr_destruct(ring_t * act_ring)
 {
-        while(act_ring->size > 0) {
+        while(act_ring->size(act_ring) > 0) {
                 act_ring->delete(act_ring);
         }
 
