@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include "includes/dynamic_generic_ring.h"
@@ -22,15 +23,16 @@ bool dgr_exist(ring_t * act_ring, void * elem)
 }
 
 // Return the count of elements of the ring
-bool dgr_size(ring_t * act_ring)
+int dgr_size(ring_t * act_ring)
 {
-        int size = 0;
         ring_t * head = act_ring;
+        int size = 0;
 
         if (head->elem == NULL) return size;
 
         while(head->next != act_ring) {
                 size++;
+                head = head->next;
         }
 
         return ++size;

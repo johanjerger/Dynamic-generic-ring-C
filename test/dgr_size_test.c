@@ -22,8 +22,8 @@ void dgr_size_test()
         ring->add(ring, test_data5);
         ring->add(ring, test_data6);
 
-        assert((ring->size == 6) &&
-               (empty_ring->size == 0),
+        assert((ring->size(ring) == 6) &&
+               (empty_ring->size(empty_ring) == 0),
                "size");
 
         ring->destruct(ring);
