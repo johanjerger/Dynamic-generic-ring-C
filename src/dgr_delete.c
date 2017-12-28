@@ -2,42 +2,22 @@
 #include <stdbool.h>
 #include "includes/dynamic_generic_ring.h"
 
-/*
- *  Here I define all the ring add functions.
- */
-
-static bool dgr_empty_delete(ring_t * act_ring)
-{
-        if (act_ring->size(act_ring) == 0) {
-                return true;
-        }
-        if (act_ring->size(act_ring) == 1) {
-                act_ring->elem = NULL;
-                return true;
-        }
-        return false;
-}
-
 // The delete function delete an element on before the actual ring position.
-void dgr_delete_before(ring_t * act_ring)
+void * dgr_pop_back(ring_t * ring)
 {
-        if(dgr_empty_delete(act_ring)) return;
-
-        ring_t * new_previous = act_ring->previous->previous;
-        new_previous->next = act_ring;
-        free(act_ring->previous);
-        act_ring->previous = new_previous;
+        ring_t * new_previous = ring->last()->previous;
+        new_previous->next = ring;
+        free(ring->previous);
+        ring->previous = new_previous;
 }
 
 // The delete function delete an element on after the actual ring position.
-void dgr_delete_next(ring_t * act_ring)
+void * dgr_pop_at(ring_t * ring, int pos)
 {
-        if(dgr_empty_delete(act_ring)) return;
-
-        ring_t * new_next = act_ring->next->next;
-        new_next->previous = act_ring;
-        free(act_ring->next);
-        act_ring->next = new_next;
+        ring_t * new_previous = ring->at(pos)->previous;
+        new_previous->next = ring;
+        free(ring->previous);
+        ring->previous = new_previous;
 }
 
 // This function deletes a particular elem in the ring

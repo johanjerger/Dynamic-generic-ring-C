@@ -7,7 +7,6 @@
 
     bool dgr_exist(ring_t *, void *);
     void dgr_print(ring_t *);
-    int dgr_size(ring_t *);
     void dgr_destruct(ring_t *);
 
 #endif
